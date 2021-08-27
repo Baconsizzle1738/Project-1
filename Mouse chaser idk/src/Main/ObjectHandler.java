@@ -2,11 +2,11 @@ package Main;
 
 import java.util.LinkedList;
 
-public class EnemyHandler {
+public class ObjectHandler {
 	
 	private LinkedList<Enemy> enemies;
 	
-	public EnemyHandler() {
+	public ObjectHandler() {
 		
 	}
 	

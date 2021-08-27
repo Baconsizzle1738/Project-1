@@ -2,6 +2,7 @@ package Main;
 
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
@@ -18,14 +19,17 @@ public class Main extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private EnemyHandler h;
+	public static final int WIDTH = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
+	public static final int HEIGHT = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight()-30;
+	
+	private ObjectHandler h;
 	
 	public Main(String title) {
-		h = new EnemyHandler();
+		h = new ObjectHandler();
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
-		this.setPreferredSize(new Dimension(1300, 1300));
+		this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		this.setTitle(title);
 		this.setVisible(true);
 		
