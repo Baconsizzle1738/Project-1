@@ -17,6 +17,7 @@ public class StartScreen extends JPanel implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	
 	public StartScreen() {
+		super();
 		
 		setLayout(null);
 		setVisible(true);
@@ -33,7 +34,11 @@ public class StartScreen extends JPanel implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		if (((JButton) (e.getSource())).getText().equals("START")) {
+			getParent().add(new Game());
+			getParent().validate();
+			getParent().remove(this);
+		}
 	}
 
 }
