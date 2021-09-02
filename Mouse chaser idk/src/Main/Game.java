@@ -35,9 +35,13 @@ public class Game extends JPanel{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
+		long now = System.currentTimeMillis();
+		
 		g.setColor(new Color(200, 200, 200));
 		g.drawRect((int)(MouseInfo.getPointerInfo().getLocation().getX()-getLocationOnScreen().getX()), (int)(MouseInfo.getPointerInfo().getLocation().getY()-getLocationOnScreen().getY()), 30, 30);
 		
 		repaint();
 	}
+	
+	
 }
