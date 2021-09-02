@@ -38,7 +38,6 @@ public class Game extends JPanel{
 		g.setColor(new Color(200, 200, 200));
 		g.drawRect((int)(MouseInfo.getPointerInfo().getLocation().getX()-getLocationOnScreen().getX()), (int)(MouseInfo.getPointerInfo().getLocation().getY()-getLocationOnScreen().getY()), 30, 30);
 		
-		
 		repaint();
 	}
 }
