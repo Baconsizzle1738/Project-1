@@ -4,7 +4,8 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public abstract class Movable {
-	private int x, y;
+	protected int x;
+	protected int y;
 	
 	public Movable (int x, int y) {
 		this.x = x;
@@ -20,6 +21,7 @@ public abstract class Movable {
 	
 	public abstract void draw(Graphics g);
 	
+	public abstract void tick();
 	
 	public abstract Rectangle getBounds();
 	

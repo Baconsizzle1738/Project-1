@@ -12,7 +12,6 @@ public abstract class Enemy extends Movable{
 		super(x, y);
 		
 		this.dmg = dmg;
-		
 	}
 	
 	

@@ -11,7 +11,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 
 public class Game extends JPanel{
-
+	
 	/**
 	 * ??????????????????????
 	 */
@@ -19,10 +19,18 @@ public class Game extends JPanel{
 	
 	private float diff;
 	
-	public Game() {
+	private long now = System.currentTimeMillis();
+	
+	private ObjectHandler h;
+	
+	public static Player p = new Player(100, 100);
+	
+	public Game(ObjectHandler h) {
 		super();
 		
 		diff = 0;
+		
+		this.h = h;
 		
 		setCursor(getToolkit().createCustomCursor(getToolkit().getImage(""), new Point(), "REE"));
 		setLayout(null);
@@ -35,10 +43,31 @@ public class Game extends JPanel{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		long now = System.currentTimeMillis();
+		//tick timer to remain consistent across different computeres at 60 fps.
+		if (System.currentTimeMillis()-now >= 1000/60) {
+			
+			int mx = (int)(MouseInfo.getPointerInfo().getLocation().getX()-getLocationOnScreen().getX()); 
+			int my = (int)(MouseInfo.getPointerInfo().getLocation().getY()-getLocationOnScreen().getY());
+			
+			diff = diff + 0.01f;
+			p.setPos(mx, my);
+			p.tick();
+			h.update();
+			System.out.println("tick");
+			now = System.currentTimeMillis();
+		}
+		
+		long nowa = System.currentTimeMillis();
 		
 		g.setColor(new Color(200, 200, 200));
-		g.drawRect((int)(MouseInfo.getPointerInfo().getLocation().getX()-getLocationOnScreen().getX()), (int)(MouseInfo.getPointerInfo().getLocation().getY()-getLocationOnScreen().getY()), 30, 30);
+		//g.drawRect((int)(, 30, 30);
+		
+		p.draw(g);
+		h.draw(g);
+		
+		System.out.println(System.currentTimeMillis()-now);
+		
+		
 		
 		repaint();
 	}

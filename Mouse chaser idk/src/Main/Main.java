@@ -37,7 +37,7 @@ public class Main extends JFrame{
 		
 		
 		Container c = this.getContentPane();
-		c.add(new StartScreen());
+		c.add(new StartScreen(h));
 		
 		pack();
 		

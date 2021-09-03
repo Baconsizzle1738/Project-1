@@ -16,7 +16,9 @@ public class StartScreen extends JPanel implements ActionListener{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public StartScreen() {
+	private ObjectHandler h;
+	
+	public StartScreen(ObjectHandler h) {
 		super();
 		
 		setLayout(null);
@@ -24,6 +26,7 @@ public class StartScreen extends JPanel implements ActionListener{
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		setBackground(new Color(70,70,70));
 		
+		this.h = h;
 		
 		JButton start = new JButton("START");
 		start.setBackground(new Color(100, 100, 0));
@@ -35,7 +38,7 @@ public class StartScreen extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (((JButton) (e.getSource())).getText().equals("START")) {
-			getParent().add(new Game());
+			getParent().add(new Game(h));
 			getParent().validate();
 			getParent().remove(this);
 		}
