@@ -23,14 +23,16 @@ public class Game extends JPanel{
 	
 	private ObjectHandler h;
 	
-	public static Player p = new Player(100, 100);
+	private Player p;
 	
 	public Game(ObjectHandler h) {
 		super();
 		
-		diff = 0;
+		diff = 1;
 		
 		this.h = h;
+		p = new Player(100, 100, this.h);
+		this.h.add(p);
 		
 		setCursor(getToolkit().createCustomCursor(getToolkit().getImage(""), new Point(), "REE"));
 		setLayout(null);
@@ -43,13 +45,13 @@ public class Game extends JPanel{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		//tick timer to remain consistent across different computeres at 60 fps.
-		if (System.currentTimeMillis()-now >= 1000/60) {
+		//tick timer to remain consistent across different computeres at 90 fps.
+		if (System.currentTimeMillis()-now >= 1000/90) {
 			
 			int mx = (int)(MouseInfo.getPointerInfo().getLocation().getX()-getLocationOnScreen().getX()); 
 			int my = (int)(MouseInfo.getPointerInfo().getLocation().getY()-getLocationOnScreen().getY());
 			
-			diff = diff + 0.01f;
+			diff = diff + 0.0013f;
 			p.setPos(mx, my);
 			p.tick();
 			h.update();
@@ -65,7 +67,7 @@ public class Game extends JPanel{
 		p.draw(g);
 		h.draw(g);
 		
-		System.out.println(System.currentTimeMillis()-now);
+		System.out.println(diff);
 		
 		
 		

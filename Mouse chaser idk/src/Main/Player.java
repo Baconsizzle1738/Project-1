@@ -7,7 +7,7 @@ public class Player extends Movable{
 	
 	
 	
-	public Player(int x, int y) {
+	public Player(int x, int y, ObjectHandler h) {
 		super(x,y);
 	}
 	
@@ -18,12 +18,12 @@ public class Player extends Movable{
 
 	@Override
 	public void draw(Graphics g) {
-		
+		g.fillRect(x, y, 40, 40);
 	}
 
 	@Override
 	public Rectangle getBounds() {
-		return null;
+		return new Rectangle(x, y, 40, 40);
 	}
 
 	@Override
