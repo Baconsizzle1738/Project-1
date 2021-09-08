@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class ObjectHandler {
 	
-	private LinkedList<Movable> things;
+	public LinkedList<Movable> things;
 	
 	public ObjectHandler() {
 		things = new LinkedList<Movable>();

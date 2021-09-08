@@ -43,10 +43,10 @@ public class ConstEnemy extends Enemy{
 			x+=speed;
 		}
 		
-		if (x>=Game.WIDTH+70 || x<-60) {
+		if (x>=Main.WIDTH+70 || x<-70) {
 			h.remove(this);
 		}
-		else if(y>Game.HEIGHT+70 || y<-60) {
+		else if(y>Main.HEIGHT+70 || y<-70) {
 			h.remove(this);
 		}
 	}

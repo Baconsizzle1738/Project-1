@@ -33,6 +33,8 @@ public class Game extends JPanel{
 		this.h = h;
 		p = new Player(100, 100, this.h);
 		this.h.add(p);
+		this.h.add(new ConstEnemy(300, -40, 12, "DOWN", this.h));
+		this.h.add(new FollowEnemy(0, 0, 15, h));
 		
 		setCursor(getToolkit().createCustomCursor(getToolkit().getImage(""), new Point(), "REE"));
 		setLayout(null);
@@ -44,6 +46,11 @@ public class Game extends JPanel{
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		
+		//spawning mechanism, spawns new enemies every second.
+		if (System.currentTimeMillis()-now >= 1000) {
+			
+		}
 		
 		//tick timer to remain consistent across different computeres at 90 fps.
 		if (System.currentTimeMillis()-now >= 1000/90) {

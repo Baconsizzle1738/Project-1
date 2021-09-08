@@ -30,4 +30,12 @@ public class Player extends Movable{
 	public void tick() {
 		
 	}
+	
+	public int getX() {
+		return x;
+	}
+	
+	public int getY() {
+		return y;
+	}
 }
