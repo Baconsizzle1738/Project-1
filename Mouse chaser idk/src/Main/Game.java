@@ -50,6 +50,8 @@ public class Game extends JPanel{
 		//spawning mechanism, spawns new enemies every second.
 		if (System.currentTimeMillis()-now >= 1000) {
 			
+			
+			
 		}
 		
 		//tick timer to remain consistent across different computeres at 90 fps.

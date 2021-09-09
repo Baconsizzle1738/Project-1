@@ -1,5 +1,6 @@
 package Main;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
@@ -25,6 +26,7 @@ public class ConstEnemy extends Enemy{
 	
 	@Override
 	public void draw(Graphics g) {
+		g.setColor(new Color(200, 0, 0));
 		g.fillRect(x, y, 30, 30);
 	}
 
