@@ -8,12 +8,19 @@ public class FollowEnemy extends Enemy{
 	
 	private float speed;
 	
+	private int timer;
+	
 	private Player p;
 	
 	public FollowEnemy(float x, float y, float spd, ObjectHandler h) {
 		super(x, y, h);
 		
 		speed = spd;
+		
+		//max speed is 19
+		if (speed > 19) {
+			speed = 19;
+		}
 		for (int i = 0; i<this.h.things.size(); i++) {
 			if (this.h.things.get(i).getClass().equals(new Player(0, 0, null).getClass())) {
 				p = (Player)this.h.things.get(i);
@@ -49,6 +56,11 @@ public class FollowEnemy extends Enemy{
 		if (y != p.getY()) {
 			y+= trueVolY;
 			//y = (int) trueY;
+		}
+		
+		timer++;
+		if (timer >= 300) {
+			h.remove(this);
 		}
 	}
 

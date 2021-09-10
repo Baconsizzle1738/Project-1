@@ -22,6 +22,23 @@ public class ConstEnemy extends Enemy{
 		direction = dir;
 		this.speed = speed;
 		
+		//speed cap at 29
+		if (this.speed>29) {
+			this.speed = 29;
+		}
+		
+		if (direction.equals("UP")) {
+			this.y = Main.HEIGHT+30;
+		}
+		else if (direction.equals("DOWN")) {
+			this.y = -30;
+		}
+		else if (direction.equals("RIGHT")) {
+			this.x = -30;
+		}
+		else if (direction.equals("LEFT")) {
+			this.x = Main.WIDTH+30;
+		}
 	}
 	
 	@Override

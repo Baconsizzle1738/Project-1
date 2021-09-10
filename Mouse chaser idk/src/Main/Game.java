@@ -20,21 +20,24 @@ public class Game extends JPanel{
 	private float diff;
 	
 	private long now = System.currentTimeMillis();
+	private long now2 = now;
 	
 	private ObjectHandler h;
 	
 	private Player p;
 	
+	private Spawn spawn;
+	
 	public Game(ObjectHandler h) {
 		super();
 		
 		diff = 1;
-		
 		this.h = h;
+		spawn = new Spawn(this.h);
 		p = new Player(100, 100, this.h);
 		this.h.add(p);
-		this.h.add(new ConstEnemy(300, -40, 12, "DOWN", this.h));
-		this.h.add(new FollowEnemy(0, 0, 15, h));
+		//this.h.add(new ConstEnemy(300, -40, 12, "DOWN", this.h));
+		//this.h.add(new FollowEnemy(0, 0, 15, h));
 		
 		setCursor(getToolkit().createCustomCursor(getToolkit().getImage(""), new Point(), "REE"));
 		setLayout(null);
@@ -48,19 +51,20 @@ public class Game extends JPanel{
 		super.paintComponent(g);
 		
 		//spawning mechanism, spawns new enemies every second.
-		if (System.currentTimeMillis()-now >= 1000) {
+		if (System.currentTimeMillis()-now2 >= 1000) {
 			
+			spawn.newSpawn(diff);
 			
-			
+			now2 = System.currentTimeMillis();
 		}
 		
-		//tick timer to remain consistent across different computeres at 90 fps.
-		if (System.currentTimeMillis()-now >= 1000/90) {
+		//tick timer to remain consistent across different computeres at 60 fps.
+		if (System.currentTimeMillis()-now >= 1000/60) {
 			
 			int mx = (int)(MouseInfo.getPointerInfo().getLocation().getX()-getLocationOnScreen().getX()); 
 			int my = (int)(MouseInfo.getPointerInfo().getLocation().getY()-getLocationOnScreen().getY());
 			
-			diff = diff + 0.0013f;
+			diff = diff + 0.00026f;
 			p.setPos(mx, my);
 			p.tick();
 			h.update();

@@ -30,4 +30,10 @@ public class ObjectHandler {
 			things.get(i).draw(g);
 		}
 	}
+	
+	public void clear() {
+		while (!things.isEmpty()) {
+			things.remove();
+		}
+	}
 }
