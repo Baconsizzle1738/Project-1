@@ -6,16 +6,27 @@ import java.awt.Rectangle;
 
 public class FollowEnemy extends Enemy{
 	
-	private float speed;
+	private float speed, trueX, trueY;
 	
 	private int timer;
 	
 	private Player p;
 	
-	public FollowEnemy(float x, float y, float spd, ObjectHandler h) {
+	public FollowEnemy(float x, float y, float spd, ObjectHandler h, String dir) {
 		super(x, y, h);
 		
 		speed = spd;
+		
+		//to prevent spawning in the middle of the screen.
+		if (dir.equals("UP") || dir.equals("DOWN")) {
+			this.y = -30;
+		}
+		else {
+			this.x = -30;
+		}
+		
+		trueX = this.x;
+		trueY = this.y;
 		
 		//max speed is 19
 		if (speed > 19) {
@@ -46,16 +57,16 @@ public class FollowEnemy extends Enemy{
 		//this is scalar
 		float trueDist = (float) Math.sqrt(Math.pow(distX, 2)+Math.pow(distY, 2));
 		float scale = trueDist/speed;
-		int trueVolX = (int) (distX/scale);
-		int trueVolY = (int) (distY/scale);
+		float trueVolX = distX/scale;
+		float trueVolY = distY/scale;
 		
 		if (x != p.getX()) {
-			x+= trueVolX;
-			//x = (int) trueX;
+			trueX+= trueVolX;
+			x = (int) trueX;
 		}
 		if (y != p.getY()) {
-			y+= trueVolY;
-			//y = (int) trueY;
+			trueY+= trueVolY;
+			y = (int) trueY;
 		}
 		
 		timer++;

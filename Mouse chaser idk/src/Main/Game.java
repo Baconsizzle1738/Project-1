@@ -68,6 +68,18 @@ public class Game extends JPanel{
 			p.setPos(mx, my);
 			p.tick();
 			h.update();
+			
+			//if you hit one enemy you lose
+			for (int i = 0; i<h.things.size(); i++) {
+				if (!h.things.get(i).getClass().equals(p.getClass())) {
+					if (p.getBounds().intersects(h.things.get(i).getBounds())) {
+						getParent().add(new Lose(h));
+						getParent().validate();
+						getParent().remove(this);
+					}
+				}
+			}
+			
 			System.out.println("tick");
 			now = System.currentTimeMillis();
 		}

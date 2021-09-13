@@ -22,7 +22,7 @@ public class Spawn {
 				h.add(new ConstEnemy(xRand, yRand, diff*1.3f, dir, h));
 			}
 			else if (rand == 1) {
-				h.add(new FollowEnemy(xRand, yRand, diff*1.3f, h));
+				h.add(new FollowEnemy(xRand, yRand, diff*1.3f, h, dir));
 			}
 			else {
 				h.add(new LaserBeam(xRand, yRand, h, dir));
