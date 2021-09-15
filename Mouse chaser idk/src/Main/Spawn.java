@@ -13,6 +13,7 @@ public class Spawn {
 	public void newSpawn(float diff) {
 		
 		for (int i = 0; i<diff; i++) {
+			//System.out.println("YEEE");
 			int rand = (int)(3*Math.random());
 			String dir = getDir();
 			int xRand = (int)(Main.WIDTH*Math.random()*0.9)+(int)(Main.WIDTH*0.05);
@@ -29,6 +30,7 @@ public class Spawn {
 			}
 			
 		}
+		//System.out.println("STOP");
 	}
 	
 	private String getDir() {

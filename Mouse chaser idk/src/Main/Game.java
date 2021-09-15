@@ -54,6 +54,7 @@ public class Game extends JPanel{
 		if (System.currentTimeMillis()-now2 >= 1000) {
 			
 			spawn.newSpawn(diff);
+			System.out.println(h);
 			
 			now2 = System.currentTimeMillis();
 		}
@@ -80,7 +81,7 @@ public class Game extends JPanel{
 				}
 			}
 			
-			System.out.println("tick");
+			//System.out.println("tick");
 			now = System.currentTimeMillis();
 		}
 		
@@ -91,9 +92,9 @@ public class Game extends JPanel{
 		
 		p.draw(g);
 		h.draw(g);
-		
-		System.out.println(diff);
-		
+		g.setColor(new Color(0, 200, 0));
+		g.drawString("SCORE: " + diff, 10, 10);
+		//System.out.println(diff);
 		
 		
 		repaint();

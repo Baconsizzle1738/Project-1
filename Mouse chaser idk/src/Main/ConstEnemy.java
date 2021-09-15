@@ -74,5 +74,9 @@ public class ConstEnemy extends Enemy{
 	public Rectangle getBounds() {
 		return new Rectangle(x, y, 30, 30);
 	}
+	
+	public String toString() {
+		return "CONST " + x + " " + y;
+	}
 
 }

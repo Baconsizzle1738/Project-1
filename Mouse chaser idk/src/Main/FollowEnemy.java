@@ -79,5 +79,9 @@ public class FollowEnemy extends Enemy{
 	public Rectangle getBounds() {
 		return new Rectangle(x, y, 20, 20);
 	}
+	
+	public String toString() {
+		return "FOLLOW " + x + " " + y;
+	}
 
 }

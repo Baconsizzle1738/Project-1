@@ -62,5 +62,8 @@ public class LaserBeam extends Enemy{
 		}
 		return new Rectangle(x, y, wid, hei);
 	}
-
+	
+	public String toString() {
+		return "LASER BEAM " + x + " " + y;
+	}
 }

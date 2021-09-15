@@ -36,4 +36,8 @@ public class ObjectHandler {
 			things.remove();
 		}
 	}
+	
+	public String toString() {
+		return things.toString();
+	}
 }

@@ -38,4 +38,9 @@ public class Player extends Movable{
 	public int getY() {
 		return y;
 	}
+	
+	
+	public String toString() {
+		return "PLAYER " + x + " " + y;
+	}
 }
