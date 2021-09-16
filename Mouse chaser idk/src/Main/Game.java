@@ -54,7 +54,7 @@ public class Game extends JPanel{
 		if (System.currentTimeMillis()-now2 >= 1000) {
 			
 			spawn.newSpawn(diff);
-			System.out.println(h);
+			//System.out.println(h);
 			
 			now2 = System.currentTimeMillis();
 		}

@@ -33,13 +33,13 @@ public class Lose extends JPanel implements ActionListener{
 		
 		JLabel lose = new JLabel("YOU LOSE");
 		lose.setBackground(new Color(200, 200, 200));
-		lose.setBounds(300,  300, 300, 300);
+		lose.setBounds(Main.WIDTH/2-90, Main.HEIGHT/2-30, 200, 45);
 		lose.setFont(new Font(Font.MONOSPACED, Font.BOLD, 35));
 		add(lose);
 		
 		JButton again = new JButton("TRY AGAIN");
 		again.setBackground(new Color(80, 80, 80));
-		again.setBounds(Main.WIDTH/2, Main.HEIGHT/2, 200, 70);
+		again.setBounds(Main.WIDTH/2-100, Main.HEIGHT/2+50, 200, 45);
 		again.addActionListener(this);
 		add(again);
 		
