@@ -1,16 +1,17 @@
 package Main;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
-public abstract class Enemy {
+public abstract class Enemy extends Movable{
+
+	protected ObjectHandler h;
 	
-	protected float x, y;
-	
-	public Enemy(float x, float y) {
-		this.x = x;
-		this.y = y;
+	public Enemy(float x, float y, ObjectHandler h) {
+		super(x, y);
+		this.h = h;
 	}
 	
-	public abstract void Draw(Graphics g);
+	
 	
 }
