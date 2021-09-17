@@ -5,9 +5,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.MouseInfo;
 import java.awt.Point;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
 import javax.swing.JPanel;
 
 public class Game extends JPanel{
@@ -84,8 +81,6 @@ public class Game extends JPanel{
 			//System.out.println("tick");
 			now = System.currentTimeMillis();
 		}
-		
-		long nowa = System.currentTimeMillis();
 		
 		g.setColor(new Color(200, 200, 200));
 		//g.drawRect((int)(, 30, 30);
