@@ -89,6 +89,7 @@ public class Game extends JPanel{
 		h.draw(g);
 		g.setColor(new Color(0, 200, 0));
 		g.drawString("SCORE: " + diff, 10, 10);
+		Main.score = diff;
 		//System.out.println(diff);
 		
 		

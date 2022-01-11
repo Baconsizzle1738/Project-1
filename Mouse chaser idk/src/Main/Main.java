@@ -24,6 +24,8 @@ public class Main extends JFrame{
 	
 	private ObjectHandler h;
 	
+	public static double score = 0;
+	
 	public Main(String title) {
 		h = new ObjectHandler();
 		
