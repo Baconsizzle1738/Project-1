@@ -47,11 +47,11 @@ public class Game extends JPanel{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		//spawning mechanism, spawns new enemies every second.
-		if (System.currentTimeMillis()-now2 >= 1000) {
+		//spawning mechanism, spawns new enemies every second, time between spawns decreases as diff gets higher
+		if (System.currentTimeMillis()-now2 >= 1000/(diff*1.3)) {
 			
 			spawn.newSpawn(diff);
-			//System.out.println(h);
+			//System.out.println(1000/(diff*3));
 			
 			now2 = System.currentTimeMillis();
 		}
@@ -88,8 +88,9 @@ public class Game extends JPanel{
 		p.draw(g);
 		h.draw(g);
 		g.setColor(new Color(0, 200, 0));
-		g.drawString("SCORE: " + diff, 10, 10);
-		Main.score = diff;
+		Main.score = (int)(diff*100)-100;
+		g.drawString("SCORE: " + Main.score, 10, 10);
+		
 		//System.out.println(diff);
 		
 		

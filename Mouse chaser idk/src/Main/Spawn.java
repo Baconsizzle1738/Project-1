@@ -20,10 +20,10 @@ public class Spawn {
 			int yRand = (int)(Main.HEIGHT*Math.random()*0.9)+(int)(Main.HEIGHT*0.05);
 			
 			if (rand == 0) {
-				h.add(new ConstEnemy(xRand, yRand, diff*1.3f, dir, h));
+				h.add(new ConstEnemy(xRand, yRand, diff*3f, dir, h));
 			}
 			else if (rand == 1) {
-				h.add(new FollowEnemy(xRand, yRand, diff*1.3f, h, dir));
+				h.add(new FollowEnemy(xRand, yRand, diff*3f, h, dir));
 			}
 			else {
 				h.add(new LaserBeam(xRand, yRand, h, dir));
