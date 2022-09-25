@@ -43,7 +43,7 @@ public class Lose extends JPanel implements ActionListener{
 		again.addActionListener(this);
 		add(again);
 		
-		JLabel score = new JLabel("SCORE: "+Main.score);
+		JLabel score = new JLabel("SCORE: "+ Main.score);
 		score.setBackground(new Color(0, 255, 0));
 		score.setBounds(Main.WIDTH/2-90, Main.HEIGHT/2-90, 300, 45);
 		score.setFont(new Font(Font.MONOSPACED, Font.BOLD, 10));
@@ -53,6 +53,7 @@ public class Lose extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (((JButton) (e.getSource())).getText().equals("TRY AGAIN")) {
+			//SAVE THE DAMN SCORE
 			Main.score = 0;
 			getParent().add(new StartScreen(h));
 			getParent().validate();

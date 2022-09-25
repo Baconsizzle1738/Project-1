@@ -19,11 +19,12 @@ public class Spawn {
 			int xRand = (int)(Main.WIDTH*Math.random()*0.9)+(int)(Main.WIDTH*0.05);
 			int yRand = (int)(Main.HEIGHT*Math.random()*0.9)+(int)(Main.HEIGHT*0.05);
 			
+			//spawn enemies at random locations on the edge of the screen
 			if (rand == 0) {
-				h.add(new ConstEnemy(xRand, yRand, diff*3f, dir, h));
+				h.add(new ConstEnemy(xRand, yRand, diff*2f, dir, h));
 			}
 			else if (rand == 1) {
-				h.add(new FollowEnemy(xRand, yRand, diff*3f, h, dir));
+				h.add(new FollowEnemy(xRand, yRand, diff*2f, h, dir));
 			}
 			else {
 				h.add(new LaserBeam(xRand, yRand, h, dir));

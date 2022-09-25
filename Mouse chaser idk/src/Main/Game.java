@@ -62,6 +62,7 @@ public class Game extends JPanel{
 			int mx = (int)(MouseInfo.getPointerInfo().getLocation().getX()-getLocationOnScreen().getX()); 
 			int my = (int)(MouseInfo.getPointerInfo().getLocation().getY()-getLocationOnScreen().getY());
 			
+			//diff increases linearly for now
 			diff = diff + 0.00026f;
 			p.setPos(mx, my);
 			p.tick();
@@ -78,7 +79,7 @@ public class Game extends JPanel{
 				}
 			}
 			
-			//System.out.println("tick");
+			System.out.println(diff);
 			now = System.currentTimeMillis();
 		}
 		
