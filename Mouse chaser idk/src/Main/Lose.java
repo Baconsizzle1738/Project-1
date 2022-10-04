@@ -60,6 +60,4 @@ public class Lose extends JPanel implements ActionListener{
 			getParent().remove(this);
 		}
 	}
-	
-
 }
