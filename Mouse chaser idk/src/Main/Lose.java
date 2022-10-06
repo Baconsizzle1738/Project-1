@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.time.LocalDateTime;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,12 +18,18 @@ public class Lose extends JPanel implements ActionListener{
 	/**
 	 * ????????????????
 	 */
+	JTextField name;
+	
 	private static final long serialVersionUID = 1L;
 	
 	ObjectHandler h;
 	
+	LocalDateTime time;
+	
 	public Lose(ObjectHandler h) {
 		super();
+		
+		time = LocalDateTime.now();
 		
 		setLayout(null);
 		setVisible(true);
@@ -50,17 +58,53 @@ public class Lose extends JPanel implements ActionListener{
 		score.setFont(new Font(Font.MONOSPACED, Font.BOLD, 10));
 		add(score);
 		
-		JTextField name = new JTextField();
+		name = new JTextField();
+		name.setBounds(Main.WIDTH/2, Main.HEIGHT/2-200, 300, 45);
+		add(name);
+		
 	}
 
+	
+	/**
+	 * Determines of the name in the text field is a legal one.
+	 * Legal texts cannot contain spaces or any of the following: []{}/\+-=$%|&"'?.,()<>:;
+	 * Legal texts also cannot be an empty string.
+	 * @param s	Text to scrutinize
+	 * @return	true if it is legal, false otherwise.
+	 */
+	private boolean isLegal(String s) {
+		
+		if (s.equals("")) {
+			return false;
+		}
+		
+		String[] illegal = {" ", "[", "]", "{", "}", "/", "\\", "+", "-", "=", "$", "%", "|", "&", "\"", "'", "?", ".", ",", "(", ")", "<", ">", ":", ";"};
+		
+		for (int i = 0; i<illegal.length; i++) {
+			System.out.println(illegal[i]);
+			if (s.contains(illegal[i])) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (((JButton) (e.getSource())).getText().equals("TRY AGAIN")) {
-			//SAVE THE DAMN SCORE
-			Main.score = 0;
-			getParent().add(new StartScreen(h));
-			getParent().validate();
-			getParent().remove(this);
+			if (isLegal(name.getText())) {
+				//SAVE THE DAMN SCORE
+				ScoreData finalScore = new ScoreData(Main.score, name.getText(), time);
+				finalScore.write();
+				
+				Main.score = 0;
+				getParent().add(new StartScreen(h));
+				getParent().validate();
+				getParent().remove(this);
+			}
+			
+			
+			
 		}
 	}
 }
