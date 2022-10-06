@@ -18,13 +18,17 @@ public class Lose extends JPanel implements ActionListener{
 	/**
 	 * ????????????????
 	 */
-	JTextField name;
-	
 	private static final long serialVersionUID = 1L;
+	
+	JTextField name;
 	
 	ObjectHandler h;
 	
 	LocalDateTime time;
+	
+	JLabel empty;
+	JLabel badName;
+	JLabel tooLong;
 	
 	public Lose(ObjectHandler h) {
 		super();
@@ -62,6 +66,11 @@ public class Lose extends JPanel implements ActionListener{
 		name.setBounds(Main.WIDTH/2, Main.HEIGHT/2-200, 300, 45);
 		add(name);
 		
+		empty = new JLabel("Please enter a name");
+		empty.setBackground(new Color(200, 0, 0));
+		
+		
+		
 	}
 
 	
@@ -69,12 +78,17 @@ public class Lose extends JPanel implements ActionListener{
 	 * Determines of the name in the text field is a legal one.
 	 * Legal texts cannot contain spaces or any of the following: []{}/\+-=$%|&"'?.,()<>:;
 	 * Legal texts also cannot be an empty string.
+	 * Legal texts must be less than 33 characters long.
 	 * @param s	Text to scrutinize
 	 * @return	true if it is legal, false otherwise.
 	 */
 	private boolean isLegal(String s) {
 		
 		if (s.equals("")) {
+			return false;
+		}
+		
+		if (s.length() > 32) {
 			return false;
 		}
 		
@@ -102,7 +116,11 @@ public class Lose extends JPanel implements ActionListener{
 				getParent().validate();
 				getParent().remove(this);
 			}
-			
+			else {
+				if (name.getText().equals("")) {
+					
+				}
+			}
 			
 			
 		}
