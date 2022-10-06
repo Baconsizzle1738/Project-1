@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Lose extends JPanel implements ActionListener{
 
@@ -48,6 +49,8 @@ public class Lose extends JPanel implements ActionListener{
 		score.setBounds(Main.WIDTH/2-90, Main.HEIGHT/2-90, 300, 45);
 		score.setFont(new Font(Font.MONOSPACED, Font.BOLD, 10));
 		add(score);
+		
+		JTextField name = new JTextField();
 	}
 
 	@Override

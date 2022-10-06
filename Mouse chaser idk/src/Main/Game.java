@@ -79,7 +79,7 @@ public class Game extends JPanel{
 				}
 			}
 			
-			System.out.println(diff);
+			//System.out.println(diff);
 			now = System.currentTimeMillis();
 		}
 		
