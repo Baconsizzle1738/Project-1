@@ -63,13 +63,13 @@ public class Lose extends JPanel implements ActionListener{
 		add(score);
 		
 		name = new JTextField();
-		name.setBounds(Main.WIDTH/2, Main.HEIGHT/2-200, 300, 45);
+		name.setBounds(Main.WIDTH/2, Main.HEIGHT/2-200, 300, 30);
 		add(name);
 		
 		empty = new JLabel("Please enter a name");
 		empty.setBackground(new Color(200, 0, 0));
-		
-		
+		empty.setBounds(Main.WIDTH/2, Main.HEIGHT/2-400, 500, 100);
+		empty.setFont(new Font(Font.MONOSPACED, Font.BOLD, 10));
 		
 	}
 
@@ -111,6 +111,7 @@ public class Lose extends JPanel implements ActionListener{
 				ScoreData finalScore = new ScoreData(Main.score, name.getText(), time);
 				finalScore.write();
 				
+				//go to start screen
 				Main.score = 0;
 				getParent().add(new StartScreen(h));
 				getParent().validate();
@@ -118,7 +119,7 @@ public class Lose extends JPanel implements ActionListener{
 			}
 			else {
 				if (name.getText().equals("")) {
-					
+					this.add(empty);
 				}
 			}
 			
