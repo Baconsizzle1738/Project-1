@@ -14,6 +14,12 @@ public class ScoreData implements Comparable<ScoreData>{
 	private LocalDateTime time;
 	private DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
 	
+	/**
+	 * This object contains all of the data for each run of the game.
+	 * @param score	Score of the run
+	 * @param name	Name of the player
+	 * @param time	Time when the score was made
+	 */
 	public ScoreData(int score, String name, LocalDateTime time) {
 		this.score = score;
 		this.name = name;
@@ -21,7 +27,7 @@ public class ScoreData implements Comparable<ScoreData>{
 	}
 	
 	public ScoreData(String data) {
-		//TODO: if taken in as String then parse string.
+		
 		String[] dat = data.split(" ");
 		
 		this.score = Integer.parseInt(dat[0]);
@@ -29,11 +35,14 @@ public class ScoreData implements Comparable<ScoreData>{
 		this.time = LocalDateTime.parse(dat[2]);
 	}
 	
+	/**
+	 * Writes the score to the scores.dat file
+	 */
 	public void write() {
 		
 		try {
-			FileWriter save = new FileWriter("data/scores.dat");
-			save.write(this.toString() + "\n");
+			FileWriter save = new FileWriter("data/scores.dat", true);
+			save.append(this.toString() + "\n");
 			save.close();
 		}
 		catch(Exception e) {
@@ -42,14 +51,26 @@ public class ScoreData implements Comparable<ScoreData>{
 		}
 	}
 	
+	/**
+	 * 
+	 * @return	The score of the player
+	 */
 	public int getScore() {
 		return score;
 	}
 	
+	/**
+	 * 
+	 * @return	The name of the player
+	 */
 	public String getName() {
 		return name;
 	}
 	
+	/**
+	 * 
+	 * @return	Time when the score was made
+	 */
 	public LocalDateTime getRawTime() {
 		return time;
 	}
