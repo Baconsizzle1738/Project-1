@@ -20,15 +20,15 @@ public class Lose extends JPanel implements ActionListener{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	JTextField name;
+	private JTextField name;
 	
 	ObjectHandler h;
 	
 	LocalDateTime time;
 	
-	JLabel empty;
-	JLabel badName;
-	JLabel tooLong;
+	private JLabel empty;
+	private JLabel badName;
+	private JLabel tooLong;
 	
 	public Lose(ObjectHandler h) {
 		super();
@@ -63,14 +63,14 @@ public class Lose extends JPanel implements ActionListener{
 		add(score);
 		
 		name = new JTextField();
-		name.setBounds(Main.WIDTH/2, Main.HEIGHT/2-200, 300, 30);
+		name.setBounds(Main.WIDTH/2, Main.HEIGHT/2-200, 300, 20);
 		add(name);
 		
 		empty = new JLabel("Please enter a name");
 		empty.setBackground(new Color(200, 0, 0));
 		empty.setBounds(Main.WIDTH/2, Main.HEIGHT/2-400, 500, 100);
-		empty.setFont(new Font(Font.MONOSPACED, Font.BOLD, 10));
-		
+		empty.setFont(new Font(Font.MONOSPACED, Font.BOLD, 30));
+		//add(empty);
 	}
 
 	
@@ -95,7 +95,7 @@ public class Lose extends JPanel implements ActionListener{
 		String[] illegal = {" ", "[", "]", "{", "}", "/", "\\", "+", "-", "=", "$", "%", "|", "&", "\"", "'", "?", ".", ",", "(", ")", "<", ">", ":", ";"};
 		
 		for (int i = 0; i<illegal.length; i++) {
-			System.out.println(illegal[i]);
+			//System.out.println(illegal[i]);
 			if (s.contains(illegal[i])) {
 				return false;
 			}
@@ -119,7 +119,9 @@ public class Lose extends JPanel implements ActionListener{
 			}
 			else {
 				if (name.getText().equals("")) {
-					this.add(empty);
+					System.out.println("piss");
+					add(empty);
+					empty.setVisible(true);
 				}
 			}
 			
