@@ -78,7 +78,7 @@ public class Lose extends JPanel implements ActionListener{
 	 * Determines of the name in the text field is a legal one.
 	 * Legal texts cannot contain spaces or any of the following: []{}/\+-=$%|&"'?.,()<>:;
 	 * Legal texts also cannot be an empty string.
-	 * Legal texts must be less than 33 characters long.
+	 * Legal texts must be less than 32 characters long.
 	 * @param s	Text to scrutinize
 	 * @return	true if it is legal, false otherwise.
 	 */
