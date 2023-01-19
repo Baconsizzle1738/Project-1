@@ -29,12 +29,21 @@ public class StartScreen extends JPanel implements ActionListener{
 		
 		this.h = h;
 		
+		//start button
 		JButton start = new JButton("START");
 		start.setBackground(new Color(100, 100, 0));
 		start.addActionListener(this);
 		start.setBounds(Main.WIDTH/2-100, Main.HEIGHT/2+50, 200, 45);
 		add(start);
 		
+		//leaderboard button
+		JButton leaderboard = new JButton("LEADERBOARD");
+		leaderboard.setBackground(new Color(100, 100, 0));
+		leaderboard.addActionListener(this);
+		leaderboard.setBounds(Main.WIDTH/2-100, Main.HEIGHT/2+120, 200, 45);
+		add(leaderboard);
+		
+		//title text
 		JLabel title = new JLabel("LE MOUSE GAME");
 		title.setFont(new Font(Font.MONOSPACED, Font.BOLD, 60));
 		title.setBounds(Main.WIDTH/2-250, Main.HEIGHT/2-70, 700, 45);
