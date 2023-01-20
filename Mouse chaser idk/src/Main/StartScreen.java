@@ -59,6 +59,11 @@ public class StartScreen extends JPanel implements ActionListener{
 			getParent().validate();
 			getParent().remove(this);
 		}
+		if (((JButton)(e.getSource())).getText().equals("LEADERBOARD")) {
+			getParent().add(new Leaderboard());
+			getParent().validate();
+			getParent().remove(this);
+		}
 	}
 
 }

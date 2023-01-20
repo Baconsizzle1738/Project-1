@@ -28,7 +28,7 @@ public class Lose extends JPanel implements ActionListener{
 	
 	//private JLabel empty;
 	private JLabel badName;
-	private JLabel tooLong;
+	//private JLabel tooLong;
 	
 	public Lose(ObjectHandler h) {
 		super();
