@@ -80,11 +80,12 @@ public class ScoreData implements Comparable<ScoreData>{
 	}
 	
 	public String toString() {
-		return score + " " + name + " " + this.getFormatTime();
+		return score + " " + name + " " + time;
 	}
 
 	@Override
 	public int compareTo(ScoreData o) {
+		//Data is sorted by score
 		if (this.getScore() >= o.getScore()) {
 			return -1;
 		}
