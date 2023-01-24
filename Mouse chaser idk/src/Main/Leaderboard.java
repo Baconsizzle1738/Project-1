@@ -39,14 +39,35 @@ public class Leaderboard extends JPanel implements ActionListener{
 				scores.add(new ScoreData(read.nextLine()));
 			}
 			read.close();
-			System.out.println(scores);
+			//System.out.println(scores);
 		}
 		catch(Exception e) {
 			System.out.println("Error reading the scores file");
 			e.printStackTrace();
 		}
 		
+		//TODO: Iterate through the treeset and turn it into a matrix
 		
+		//Data in a matrix for a table
+		String[][] data = new String[10][3];
+		//names for table title
+		String[] names = {"USERNAME", "SCORE", "TIME"};
+		
+		for (int i = 0; i<10; i++) {
+			ScoreData temp = scores.first();
+			data[i][0] = temp.getName();
+			data[i][1] = temp.getScore() + "";
+			data[i][2] = temp.getFormatTime();
+			scores.remove(scores.first());
+		}
+		
+		//System.out.println(data);
+		for (int i = 0; i<data.length; i++) {
+			for (int j = 0; j<data[i].length; j++) {
+				System.out.print(data[i][j] + " ");
+			}
+			System.out.println();
+		}
 		
 		//GUI stuff
 		JLabel leaderboard = new JLabel("LEADERBOARD");
