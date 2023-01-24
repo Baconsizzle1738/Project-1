@@ -38,6 +38,7 @@ public class Leaderboard extends JPanel implements ActionListener{
 			while(read.hasNextLine()) {
 				scores.add(new ScoreData(read.nextLine()));
 			}
+			read.close();
 			System.out.println(scores);
 		}
 		catch(Exception e) {
@@ -50,7 +51,7 @@ public class Leaderboard extends JPanel implements ActionListener{
 		//GUI stuff
 		JLabel leaderboard = new JLabel("LEADERBOARD");
 		leaderboard.setForeground(new Color(200, 200, 200));
-		leaderboard.setBounds(Main.WIDTH/2-100, Main.HEIGHT/2-30, 220, 45);
+		leaderboard.setBounds(Main.WIDTH/2-100, Main.HEIGHT/2-350, 220, 45);
 		leaderboard.setFont(new Font(Font.MONOSPACED, Font.BOLD, 32));
 		add(leaderboard);
 		
