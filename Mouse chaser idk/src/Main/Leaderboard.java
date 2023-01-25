@@ -6,12 +6,14 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.TreeSet;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 public class Leaderboard extends JPanel implements ActionListener{
 
@@ -19,6 +21,8 @@ public class Leaderboard extends JPanel implements ActionListener{
 	 * ???????????????????????????????????????
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private TreeSet<ScoreData> scores = new TreeSet<ScoreData>();
 
 	ObjectHandler h;
 	public Leaderboard(ObjectHandler h) {
@@ -31,8 +35,7 @@ public class Leaderboard extends JPanel implements ActionListener{
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		setBackground(new Color(70, 70, 70));
 		
-		//sort the scores
-		TreeSet<ScoreData> scores = new TreeSet<ScoreData>();
+		
 		try {
 			Scanner read = new Scanner(new File("data/scores.dat"));
 			while(read.hasNextLine()) {
@@ -47,18 +50,25 @@ public class Leaderboard extends JPanel implements ActionListener{
 		}
 		
 		//TODO: Iterate through the treeset and turn it into a matrix
-		
 		//Data in a matrix for a table
 		String[][] data = new String[10][3];
 		//names for table title
 		String[] names = {"USERNAME", "SCORE", "TIME"};
+		Iterator<ScoreData> iter = scores.iterator();
+		
+//		while (iter.hasNext()) {
+//			ScoreData temp = iter.next();
+//			data[i][0] = temp.getName();
+//		}
 		
 		for (int i = 0; i<10; i++) {
-			ScoreData temp = scores.first();
-			data[i][0] = temp.getName();
-			data[i][1] = temp.getScore() + "";
-			data[i][2] = temp.getFormatTime();
-			scores.remove(scores.first());
+			if (iter.hasNext()) {
+				ScoreData temp = iter.next();
+				data[i][0] = temp.getName();
+				data[i][1] = temp.getScore() + "";
+				data[i][2] = temp.getFormatTime();
+			}
+			
 		}
 		
 		//System.out.println(data);
@@ -81,6 +91,14 @@ public class Leaderboard extends JPanel implements ActionListener{
 		menu.addActionListener(this);
 		menu.setBounds(Main.WIDTH/2-100, Main.HEIGHT/2+120, 200, 45);
 		add(menu);
+		
+		JTable table = new JTable(data, names);
+		table.setBounds(100, 100, 500, 300);
+		table.setBackground(new Color(70, 70, 70));
+		table.setForeground(new Color(200, 0, 0));
+		table.setVisible(true);
+		add(table);
+		
 	}
 	
 	
