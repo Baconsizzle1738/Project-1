@@ -49,7 +49,6 @@ public class Leaderboard extends JPanel implements ActionListener{
 			e.printStackTrace();
 		}
 		
-		//TODO: Iterate through the treeset and turn it into a matrix
 		//Data in a matrix for a table
 		String[][] data = new String[10][3];
 		//names for table title
@@ -96,6 +95,9 @@ public class Leaderboard extends JPanel implements ActionListener{
 		table.setBounds(100, 100, 500, 300);
 		table.setBackground(new Color(70, 70, 70));
 		table.setForeground(new Color(200, 0, 0));
+		table.setFocusable(false);
+		table.setDefaultEditor(Object.class, null);
+		table.setRowSelectionAllowed(false);
 		table.setVisible(true);
 		add(table);
 		
