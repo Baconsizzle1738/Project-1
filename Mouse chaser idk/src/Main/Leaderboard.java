@@ -98,6 +98,7 @@ public class Leaderboard extends JPanel implements ActionListener{
 		table.setFocusable(false);
 		table.setDefaultEditor(Object.class, null);
 		table.setRowSelectionAllowed(false);
+		table.setShowGrid(false);
 		table.setVisible(true);
 		add(table);
 		
