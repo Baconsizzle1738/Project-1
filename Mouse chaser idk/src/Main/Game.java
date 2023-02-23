@@ -66,6 +66,11 @@ public class Game extends JPanel{
 			diff = diff + 0.00026f;
 			p.setPos(mx, my);
 			p.tick();
+			
+			//DRAWSTUFF
+			
+			//DRAWSTUFF
+			
 			h.update();
 			
 			//if you hit one enemy you lose
@@ -83,6 +88,7 @@ public class Game extends JPanel{
 			now = System.currentTimeMillis();
 		}
 		
+		//DRAW STUFF
 		g.setColor(new Color(200, 200, 200));
 		//g.drawRect((int)(, 30, 30);
 		
@@ -93,7 +99,7 @@ public class Game extends JPanel{
 		g.drawString("SCORE: " + Main.score, 10, 10);
 		
 		//System.out.println(diff);
-		
+		//DRAWSTUFF
 		
 		repaint();
 	}

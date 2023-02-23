@@ -13,6 +13,7 @@ import java.util.TreeSet;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 public class Leaderboard extends JPanel implements ActionListener{
@@ -91,6 +92,10 @@ public class Leaderboard extends JPanel implements ActionListener{
 		menu.setBounds(Main.WIDTH/2-100, Main.HEIGHT/2+120, 200, 45);
 		add(menu);
 		
+		//JScrollPane pane = new JScrollPane();
+		//pane.setBounds(100, 100, 500, 300);
+		//pane.setBackground(new Color(70, 70, 70));
+		
 		JTable table = new JTable(data, names);
 		table.setBounds(100, 100, 500, 300);
 		table.setBackground(new Color(70, 70, 70));
@@ -100,6 +105,8 @@ public class Leaderboard extends JPanel implements ActionListener{
 		table.setRowSelectionAllowed(false);
 		table.setShowGrid(false);
 		table.setVisible(true);
+		//pane.add(table);
+		//pane.setVisible(true);
 		add(table);
 		
 	}
