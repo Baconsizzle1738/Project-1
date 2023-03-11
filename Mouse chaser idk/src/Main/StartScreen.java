@@ -43,6 +43,14 @@ public class StartScreen extends JPanel implements ActionListener{
 		leaderboard.setBounds(Main.WIDTH/2-100, Main.HEIGHT/2+120, 200, 45);
 		add(leaderboard);
 		
+		//exit button
+		JButton quit = new JButton("QUIT");
+		quit.setBackground(new Color(100, 100, 0));
+		quit.addActionListener(this);
+		quit.setBounds(Main.WIDTH/2-100, Main.HEIGHT/2+190, 200, 45);
+		add(quit);
+		
+		
 		//title text
 		JLabel title = new JLabel("LE MOUSE GAME");
 		title.setFont(new Font(Font.MONOSPACED, Font.BOLD, 60));
@@ -63,6 +71,9 @@ public class StartScreen extends JPanel implements ActionListener{
 			getParent().add(new Leaderboard(h));
 			getParent().validate();
 			getParent().remove(this);
+		}
+		if (((JButton)(e.getSource())).getText().equals("QUIT")) {
+			System.exit(0);
 		}
 	}
 
