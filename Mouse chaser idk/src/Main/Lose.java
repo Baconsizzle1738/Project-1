@@ -46,7 +46,7 @@ public class Lose extends JPanel implements ActionListener{
 		
 		JLabel lose = new JLabel("YOU LOSE");
 		lose.setForeground(new Color(200, 200, 200));
-		lose.setBounds(Main.WIDTH/2-90, Main.HEIGHT/2-30, 200, 45);
+		lose.setBounds(Main.WIDTH/2-90, Main.HEIGHT/2-130, 200, 45);
 		lose.setFont(new Font(Font.MONOSPACED, Font.BOLD, 35));
 		add(lose);
 		
@@ -59,17 +59,17 @@ public class Lose extends JPanel implements ActionListener{
 		
 		JLabel score = new JLabel("SCORE: "+ Main.score);
 		score.setForeground(new Color(0, 255, 0));
-		score.setBounds(Main.WIDTH/2-90, Main.HEIGHT/2-90, 300, 45);
+		score.setBounds(Main.WIDTH/2-125, Main.HEIGHT/2-90, 250, 45);
 		score.setFont(new Font(Font.MONOSPACED, Font.BOLD, 10));
 		add(score);
 		
 		name = new JTextField();
-		name.setBounds(Main.WIDTH/2, Main.HEIGHT/2-200, 300, 20);
+		name.setBounds(Main.WIDTH/2-150, Main.HEIGHT/2-50, 300, 20);
 		add(name);
 		
 		badName = new JLabel("<html>Name must be between 1 and 32 characters long <br></br> Inputting no name will not save the score <br></br> Name cannot contain []{}/\\+-=$%|&\"'?.,()<>:; </html>");
 		badName.setForeground(new Color(200, 0, 0));
-		badName.setBounds(Main.WIDTH/2, Main.HEIGHT/2-400, 500, 100);
+		badName.setBounds(Main.WIDTH/2-200, Main.HEIGHT/2-30, 400, 100);
 		badName.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 10));
 		add(badName);
 	}
