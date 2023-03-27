@@ -56,6 +56,19 @@ public class Game extends JPanel{
 			now2 = System.currentTimeMillis();
 		}
 		
+		//DRAWSTUFF
+		g.setColor(new Color(200, 200, 200));
+		//g.drawRect((int)(, 30, 30);
+		
+		//p.draw(g);
+		h.draw(g);
+		g.setColor(new Color(0, 200, 0));
+		Main.score = (int)(diff*100)-100;
+		g.drawString("SCORE: " + Main.score, 10, 10);
+		
+		//System.out.println(diff);
+		//DRAWSTUFF
+		
 		//tick timer to remain consistent across different computeres at 60 fps.
 		if (System.currentTimeMillis()-now >= 1000/60) {
 			
@@ -64,14 +77,12 @@ public class Game extends JPanel{
 			
 			//diff increases linearly for now
 			diff = diff + 0.00026f;
-			p.setPos(mx, my);
-			p.tick();
 			
-			//DRAWSTUFF
 			
-			//DRAWSTUFF
 			
 			h.update();
+			p.setPos(mx, my);
+			//p.tick();
 			
 			//if you hit one enemy you lose
 			for (int i = 0; i<h.things.size(); i++) {
@@ -89,16 +100,7 @@ public class Game extends JPanel{
 		}
 		
 		//DRAW STUFF
-		g.setColor(new Color(200, 200, 200));
-		//g.drawRect((int)(, 30, 30);
 		
-		p.draw(g);
-		h.draw(g);
-		g.setColor(new Color(0, 200, 0));
-		Main.score = (int)(diff*100)-100;
-		g.drawString("SCORE: " + Main.score, 10, 10);
-		
-		//System.out.println(diff);
 		//DRAWSTUFF
 		
 		repaint();
