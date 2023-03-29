@@ -86,7 +86,7 @@ public class ScoreData implements Comparable<ScoreData>{
 	@Override
 	public int compareTo(ScoreData o) {
 		//Data is sorted by score
-		if (this.getScore() >= o.getScore()) {
+		if (this.getScore() > o.getScore()) {
 			return -1;
 		}
 		return 1;

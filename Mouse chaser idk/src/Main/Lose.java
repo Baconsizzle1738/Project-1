@@ -93,9 +93,9 @@ public class Lose extends JPanel implements ActionListener{
 	 */
 	private boolean isLegal(String s) {
 		
-		//if (s.equals("")) {
-			//return false;
-		//}
+		if (s.equals("")) {
+			return false;
+		}
 		
 		if (s.length() > 32) {
 			return false;

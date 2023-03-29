@@ -45,7 +45,20 @@ public class Game extends JPanel{
 	}
 	
 	public void paintComponent(Graphics g) {
+		//DRAW STUFF
 		super.paintComponent(g);
+		g.setColor(new Color(200, 200, 200));
+		//g.drawRect((int)(, 30, 30);
+		
+		//p.draw(g);
+		h.draw(g);
+		g.setColor(new Color(0, 200, 0));
+		Main.score = (int)(diff*100)-100;
+		g.drawString("SCORE: " + Main.score, 10, 10);
+		
+		//System.out.println(diff);
+		
+		
 		
 		//spawning mechanism, spawns new enemies every second, time between spawns decreases as diff gets higher
 		if (System.currentTimeMillis()-now2 >= 1000/(diff*1.3)) {
@@ -57,16 +70,7 @@ public class Game extends JPanel{
 		}
 		
 		//DRAWSTUFF
-		g.setColor(new Color(200, 200, 200));
-		//g.drawRect((int)(, 30, 30);
 		
-		//p.draw(g);
-		h.draw(g);
-		g.setColor(new Color(0, 200, 0));
-		Main.score = (int)(diff*100)-100;
-		g.drawString("SCORE: " + Main.score, 10, 10);
-		
-		//System.out.println(diff);
 		//DRAWSTUFF
 		
 		//tick timer to remain consistent across different computeres at 60 fps.
@@ -79,9 +83,9 @@ public class Game extends JPanel{
 			diff = diff + 0.00026f;
 			
 			
-			
-			h.update();
 			p.setPos(mx, my);
+			h.update();
+			
 			//p.tick();
 			
 			//if you hit one enemy you lose
