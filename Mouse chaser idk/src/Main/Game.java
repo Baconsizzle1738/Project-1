@@ -47,14 +47,7 @@ public class Game extends JPanel{
 	public void paintComponent(Graphics g) {
 		//DRAW STUFF
 		super.paintComponent(g);
-		g.setColor(new Color(200, 200, 200));
-		//g.drawRect((int)(, 30, 30);
 		
-		//p.draw(g);
-		h.draw(g);
-		g.setColor(new Color(0, 200, 0));
-		Main.score = (int)(diff*100)-100;
-		g.drawString("SCORE: " + Main.score, 10, 10);
 		
 		//System.out.println(diff);
 		
@@ -104,7 +97,14 @@ public class Game extends JPanel{
 		}
 		
 		//DRAW STUFF
+		g.setColor(new Color(200, 200, 200));
+		//g.drawRect((int)(, 30, 30);
 		
+		//p.draw(g);
+		h.draw(g);
+		g.setColor(new Color(0, 200, 0));
+		Main.score = (int)(diff*100)-100;
+		g.drawString("SCORE: " + Main.score, 10, 10);
 		//DRAWSTUFF
 		
 		repaint();
