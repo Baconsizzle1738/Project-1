@@ -117,6 +117,8 @@ public class Leaderboard extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (((JButton)e.getSource()).getText().equals("MAIN MENU")) {
+			GameAudio.playButtonSound();
+			
 			getParent().add(new StartScreen(h));
 			getParent().validate();
 			getParent().remove(this);

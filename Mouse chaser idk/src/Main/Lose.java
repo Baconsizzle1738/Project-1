@@ -142,11 +142,15 @@ public class Lose extends JPanel implements ActionListener{
 			Main.score = 0;
 			//leave screen when name is saved
 			if (((JButton) (e.getSource())).getText().equals("MAIN MENU")) {
+				GameAudio.playButtonSound();
+				
 				getParent().add(new StartScreen(h));
 				getParent().validate();
 				getParent().remove(this);
 			}
 			if (((JButton) (e.getSource())).getText().equals("PLAY AGAIN")) {
+				GameAudio.playButtonSound();
+				
 				getParent().add(new Game(h));
 				getParent().validate();
 				getParent().remove(this);

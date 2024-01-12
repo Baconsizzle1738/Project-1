@@ -23,23 +23,26 @@ public class StartScreen extends JPanel implements ActionListener{
 	private ObjectHandler h;
 	
 	//sound stuff
+	@Deprecated
 	private URL buttonSoundURL;
+	@Deprecated
 	private AudioInputStream buttonais;
-	private Clip clip;
+	@Deprecated
+	private Clip buttonClip;
 	
 	public StartScreen(ObjectHandler h) {
 		super();
 		
-		try {
-			buttonSoundURL = new URL(Main.BUTTON_CLICK);
-			buttonais = AudioSystem.getAudioInputStream(buttonSoundURL);
-			clip = AudioSystem.getClip();
-			clip.open(buttonais);
-		}
-		catch(Exception e) {
-			System.out.println("Error loading sound in start");
-			e.printStackTrace();
-		}
+//		try {
+//			buttonSoundURL = new URL(Main.BUTTON_CLICK);
+//			buttonais = AudioSystem.getAudioInputStream(buttonSoundURL);
+//			buttonClip = AudioSystem.getClip();
+//			
+//		}
+//		catch(Exception e) {
+//			System.out.println("Error loading sound in start");
+//			e.printStackTrace();
+//		}
 		
 		
 		setLayout(null);
@@ -80,23 +83,44 @@ public class StartScreen extends JPanel implements ActionListener{
 		
 	}
 
+	@SuppressWarnings("unused")
+	@Deprecated
+	private void playButtonSound() {
+		//sound
+		try {
+			buttonClip.open(buttonais);
+			buttonClip.setFramePosition(0);
+			buttonClip.start();
+			//clip.close();
+		}
+		catch(Exception ex) {
+			System.out.println("button press sound error");
+			ex.printStackTrace();
+		}
+	}
 	@Override
+	
 	public void actionPerformed(ActionEvent e) {
 		if (((JButton) (e.getSource())).getText().equals("START")) {
-			//sound
-			clip.setFramePosition(0);
-			clip.start();
+			
+			GameAudio.playButtonSound();
 			
 			getParent().add(new Game(h));
 			getParent().validate();
 			getParent().remove(this);
 		}
 		if (((JButton)(e.getSource())).getText().equals("LEADERBOARD")) {
+			//sound
+			GameAudio.playButtonSound();
+			
 			getParent().add(new Leaderboard(h));
 			getParent().validate();
 			getParent().remove(this);
 		}
 		if (((JButton)(e.getSource())).getText().equals("QUIT")) {
+			//sound
+			GameAudio.playButtonSound();
+			
 			System.exit(0);
 		}
 	}
