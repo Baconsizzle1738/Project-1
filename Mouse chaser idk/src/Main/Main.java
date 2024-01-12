@@ -4,6 +4,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.File;
+//import java.net.URL;
 
 import javax.swing.JFrame;
 
@@ -22,6 +23,8 @@ public class Main extends JFrame{
 	
 	public static final int WIDTH = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 	public static final int HEIGHT = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight()-30;
+	
+	public static final String BUTTON_CLICK = "file:audio/button_click.wav";
 	
 	private ObjectHandler h;
 	

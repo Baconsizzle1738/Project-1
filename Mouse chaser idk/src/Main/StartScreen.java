@@ -9,6 +9,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.sound.sampled.*;
+
+import java.net.URL;
 
 public class StartScreen extends JPanel implements ActionListener{
 
@@ -19,8 +22,25 @@ public class StartScreen extends JPanel implements ActionListener{
 	
 	private ObjectHandler h;
 	
+	//sound stuff
+	private URL buttonSoundURL;
+	private AudioInputStream buttonais;
+	private Clip clip;
+	
 	public StartScreen(ObjectHandler h) {
 		super();
+		
+		try {
+			buttonSoundURL = new URL(Main.BUTTON_CLICK);
+			buttonais = AudioSystem.getAudioInputStream(buttonSoundURL);
+			clip = AudioSystem.getClip();
+			clip.open(buttonais);
+		}
+		catch(Exception e) {
+			System.out.println("Error loading sound in start");
+			e.printStackTrace();
+		}
+		
 		
 		setLayout(null);
 		setVisible(true);
@@ -63,6 +83,10 @@ public class StartScreen extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (((JButton) (e.getSource())).getText().equals("START")) {
+			//sound
+			clip.setFramePosition(0);
+			clip.start();
+			
 			getParent().add(new Game(h));
 			getParent().validate();
 			getParent().remove(this);
